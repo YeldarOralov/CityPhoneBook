@@ -28,55 +28,59 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
+            this.citiesList = new System.Windows.Forms.ComboBox();
+            this.addPhone = new System.Windows.Forms.Button();
+            this.showPhone = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
-            // comboBox1
+            // citiesList
             // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(125, 134);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(121, 21);
-            this.comboBox1.TabIndex = 0;
+            this.citiesList.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.citiesList.FormattingEnabled = true;
+            this.citiesList.Location = new System.Drawing.Point(125, 134);
+            this.citiesList.Name = "citiesList";
+            this.citiesList.Size = new System.Drawing.Size(225, 21);
+            this.citiesList.TabIndex = 0;
+            this.citiesList.SelectedIndexChanged += new System.EventHandler(this.citiesList_SelectedIndexChanged);
             // 
-            // button1
+            // addPhone
             // 
-            this.button1.Location = new System.Drawing.Point(461, 134);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 1;
-            this.button1.Text = "button1";
-            this.button1.UseVisualStyleBackColor = true;
+            this.addPhone.Location = new System.Drawing.Point(461, 134);
+            this.addPhone.Name = "addPhone";
+            this.addPhone.Size = new System.Drawing.Size(93, 36);
+            this.addPhone.TabIndex = 1;
+            this.addPhone.Text = "Добавить номер";
+            this.addPhone.UseVisualStyleBackColor = true;
+            this.addPhone.Click += new System.EventHandler(this.addPhone_Click);
             // 
-            // button2
+            // showPhone
             // 
-            this.button2.Location = new System.Drawing.Point(461, 185);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(75, 23);
-            this.button2.TabIndex = 2;
-            this.button2.Text = "button2";
-            this.button2.UseVisualStyleBackColor = true;
+            this.showPhone.Location = new System.Drawing.Point(461, 197);
+            this.showPhone.Name = "showPhone";
+            this.showPhone.Size = new System.Drawing.Size(93, 36);
+            this.showPhone.TabIndex = 2;
+            this.showPhone.Text = "Показать номера";
+            this.showPhone.UseVisualStyleBackColor = true;
+            this.showPhone.Click += new System.EventHandler(this.showPhone_Click);
             // 
             // StartWindow
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.button2);
-            this.Controls.Add(this.button1);
-            this.Controls.Add(this.comboBox1);
+            this.Controls.Add(this.showPhone);
+            this.Controls.Add(this.addPhone);
+            this.Controls.Add(this.citiesList);
             this.Name = "StartWindow";
-            this.Text = "StartWindow";
+            this.Text = "Справочник";
             this.ResumeLayout(false);
 
         }
 
         #endregion
 
-        private System.Windows.Forms.ComboBox comboBox1;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.ComboBox citiesList;
+        private System.Windows.Forms.Button addPhone;
+        private System.Windows.Forms.Button showPhone;
     }
 }

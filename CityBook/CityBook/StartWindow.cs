@@ -20,9 +20,28 @@ namespace CityBook
             {
                 foreach (var city in context.Cities.ToList())
                 {
-                    comboBox1.Items.Add($"{city.Name}");
+                    citiesList.Items.Add($"{city.Name}");
                 }
             }
+            citiesList.SelectedIndex = citiesList.Items.IndexOf("Нур-Султан");
+        }
+
+        private void citiesList_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void addPhone_Click(object sender, EventArgs e)
+        {
+            var cityName = citiesList.SelectedItem.ToString();
+
+            MessageBox.Show(cityName);
+            Form.ActiveForm.Close();
+        }
+
+        private void showPhone_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
