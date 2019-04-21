@@ -8,5 +8,10 @@ namespace CityBook.Models
         public string Name { get; set; }
         public string PhoneCode { get; set; }
         public ICollection<PhoneBook> PhonesNumbers { get; set; }
+
+        public City()
+        {
+            PhonesNumbers = new List<PhoneBook>();
+        }
     }
 }

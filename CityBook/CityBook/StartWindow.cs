@@ -34,14 +34,15 @@ namespace CityBook
         private void addPhone_Click(object sender, EventArgs e)
         {
             var cityName = citiesList.SelectedItem.ToString();
-
-            MessageBox.Show(cityName);
-            Form.ActiveForm.Close();
+            var newForm = new AddPhoneWindow(cityName);
+            newForm.Show();
         }
 
         private void showPhone_Click(object sender, EventArgs e)
         {
-
+            var cityName = citiesList.SelectedItem.ToString();
+            var newForm = new ShowPhones(cityName);
+            newForm.Show();
         }
     }
 }
