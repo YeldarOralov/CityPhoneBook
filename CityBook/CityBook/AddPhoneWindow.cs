@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.Entity;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -37,14 +38,25 @@ namespace CityBook
         {
             using (var context = new DataContext())
             {
-                foreach (var city in context.Cities.ToList())
-                {
-                    if (city.Name == _cityName)
-                    {
-                        city.PhonesNumbers.Add(new PhoneBook { FullName = enteredName.Text, Number = enteredPhone.Text });
-                        context.SaveChanges();
-                    }
-                }
+                City city = context.Cities.Where(c => c.Name == _cityName).FirstOrDefault();
+                //    foreach (var city in context.Cities.ToList())
+                //    {
+                //        if (city.Name == _cityName)
+                //        {
+                //            city.PhonesNumbers.Add(new PhoneBook { FullName = enteredName.Text, Number = enteredPhone.Text });
+                //            context.SaveChanges();
+                //        }
+                //    }
+                //    foreach (var city in context.Cities.ToList())
+                //    {
+                //        if (city.Name == _cityName)
+                //        {
+                //            var res = city;
+                //        }
+                //    }
+                city.PhonesNumbers.Add(new PhoneBook { FullName = enteredName.Text, Number = enteredPhone.Text });
+                context.Cities.Attach(city);
+                context.SaveChanges();
             }
             Form.ActiveForm.Close();
         }

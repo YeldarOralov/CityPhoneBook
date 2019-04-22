@@ -23,14 +23,15 @@ namespace CityBook
             InitializeComponent();
             using (var context = new DataContext())
             {
-                var phones = new List<PhoneBook>();
-                foreach (var city in context.Cities.ToList())
-                {
-                    if (city.Name == cityName)
-                    {
-                        source.DataSource = city.PhonesNumbers;
-                    }
-                }
+                //foreach (var city in context.Cities.ToList())
+                //{
+                //    if (city.Name == cityName)
+                //    {
+                //        source.DataSource = city.PhonesNumbers;
+                //    }
+                //}
+                City city = context.Cities.Where(c => c.Name == cityName).FirstOrDefault();
+                source.DataSource = city.PhonesNumbers;
             }
             phonesTable.DataSource = source;
         }
